@@ -3,24 +3,27 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/filmGenerateFragment">
-
+    app:startDestination="@id/fragmentHome">
     <fragment
-        android:id="@+id/filmDetaildFragment"
-        android:name="com.example.filmography.presentation.screens.FilmDetaildFragment"
-        android:label="fragment_film_detaild"
-        tools:layout="@layout/fragment_film_detaild" >
+        android:id="@+id/fragmentHome"
+        android:name="com.example.filmography.presentation.screens.FragmentHome"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_filmDetaildFragment_to_filmGenerateFragment"
-            app:destination="@id/filmGenerateFragment" />
+            android:id="@+id/action_fragmentHome_to_fragmentSearch"
+            app:destination="@id/fragmentSearch" />
+        <action
+            android:id="@+id/action_fragmentHome_to_fragmentSettings"
+            app:destination="@id/fragmentSettings" />
     </fragment>
     <fragment
-        android:id="@+id/filmGenerateFragment"
-        android:name="com.example.filmography.presentation.screens.FilmGenerateFragment"
-        android:label="fragment_film_generate"
-        tools:layout="@layout/fragment_film_generate" >
-        <action
-            android:id="@+id/action_filmGenerateFragment_to_filmDetaildFragment"
-            app:destination="@id/filmDetaildFragment" />
-    </fragment>
+        android:id="@+id/fragmentSearch"
+        android:name="com.example.filmography.presentation.screens.FragmentSearch"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/fragmentSettings"
+        android:name="com.example.filmography.presentation.screens.FragmentSettings"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>
