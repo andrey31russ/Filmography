@@ -22,11 +22,11 @@ class FragmentHome : Fragment() {
 
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
 //        binding.button2.setOnClickListener {
 //            it.findNavController().navigate(R.id.action_fragmentHome_to_fragmentSearch)
 //        }
-    }
+//    }
 
 }
