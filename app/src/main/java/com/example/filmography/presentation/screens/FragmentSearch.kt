@@ -5,9 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.findNavController
-import com.example.filmography.R
-import com.example.filmography.databinding.FragmentSearchBinding
+import com.project.bindingapp.databinding.FragmentSearchBinding
 
 
 class FragmentSearch : Fragment() {
