@@ -2,38 +2,53 @@ package com.example.filmography.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Toast
-import androidx.navigation.NavController
-import androidx.navigation.fragment.NavHostFragment
+import androidx.fragment.app.Fragment
+import com.example.filmography.presentation.screens.FragmentHome
+import com.example.filmography.presentation.screens.FragmentSearch
+import com.example.filmography.presentation.screens.FragmentSettings
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.project.bindingapp.R
 
 
-import com.project.bindingapp.databinding.ActivityMainBinding
-
 class MainActivity : AppCompatActivity() {
-    private lateinit var binding: ActivityMainBinding
-    lateinit var navController: NavController
+
+    lateinit var bottomNav : BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
-        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-        navController = navHostFragment.navController
-        init()
+        setContentView(R.layout.activity_main)
+        loadFragment(FragmentHome())
+        bottomNav = findViewById(R.id.bottom_nav_menu) as BottomNavigationView
+        bottomNav.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.nav_home -> {
+                    loadFragment(FragmentHome())
+                    true
+                }
+                R.id.nav_settings -> {
+                    loadFragment(FragmentSettings())
+                    true
+                }
+                R.id.nav_search -> {
+                    loadFragment(FragmentSearch())
+                    true
+                }
 
-    }
-
-
-    private fun init(){
-
-        binding.bottomNavMenu.setOnClickListener {
-            when(it.id){
-                R.id.nav_home -> {Toast.makeText(this, "you have presed $it", Toast.LENGTH_SHORT).show()}
-                R.id.nav_search -> {Toast.makeText(this, "you have presed $it", Toast.LENGTH_SHORT).show()}
-                R.id.nav_settings-> {Toast.makeText(this, "you have presed $it", Toast.LENGTH_SHORT).show()}
+                else -> {
+                    true
+                }
             }
-
         }
     }
+    private  fun loadFragment(fragment: Fragment){
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.container,fragment)
+        transaction.commit()
+    }
+
 }
+
+
+
+
+
