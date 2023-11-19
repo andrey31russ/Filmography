@@ -8,8 +8,6 @@ import com.example.filmography.presentation.screens.FragmentSearch
 import com.example.filmography.presentation.screens.FragmentSettings
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.project.bindingapp.R
-
-
 class MainActivity : AppCompatActivity() {
 
     lateinit var bottomNav : BottomNavigationView
